@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public PendingIntent getPendingIntent() {
+        return pendingIntent;
+    }
+
     @SuppressLint("SetTextI18n")
     private void buildTagViews(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0) return;
