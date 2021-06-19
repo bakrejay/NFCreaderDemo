@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(nfcAdapter != null){
-            Log.e("NFC Enable", String.valueOf(nfcAdapter.isEnabled()));
             if(!nfcAdapter.isEnabled()){
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("NFC Not enable..");
@@ -90,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gotoNFCSettings() {
-        Log.e("Launce", "Setting");
         Intent intent;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             intent = new Intent(Settings.ACTION_NFC_SETTINGS);
@@ -136,10 +134,7 @@ public class MainActivity extends AppCompatActivity {
             //text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
             text = new String(payload, textEncoding);
         } catch (UnsupportedEncodingException e) {
-            Log.e("UnsupportedEncoding", e.toString());
         }
-
-        Log.e("Tag Code", tagId);
         tvNFCContent.setText(text);
     }
 
@@ -190,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             byte[] id = myTag.getId();
             String tagID = bytesToHex(id);
-            Log.e("TAG ID", tagID);
         }
 
 
